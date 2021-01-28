@@ -1,0 +1,36 @@
+<div class="main-content">
+  <div id="page-wrapper">
+    <div class="main-page">
+      <div class="tables">
+        <h3 class="title1">List Book</h3>
+        <div class="panel-body widget-shadow">
+
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor = "let book of books; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{book.title}}</td>
+              <td>{{book.author}}</td>
+              <td>{{book.description}}</td>
+              <td>
+                <a routerLink="edit/{{book.id}}" class="btn btn-primary">Edit</a>
+                <a (click)="deleteBook(book.id)" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa chứ?')" >Delete</a>
+                <a (click)="bookDetail(book.id)" class="btn btn-info">Details</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
